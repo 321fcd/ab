@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		let box = document.getElementsByClassName('box')[0];
+		let t = setInterval(move,60);
+		let maxY = window.innerHeight-box.offsetHeight;
+		let speed = 10;
+		function move(){
+			let tops = box.offsetTop+speed;
+			if(tops >= maxY){
+				tops = maxY;
+				speed *= -1;
+			}
+			if(tops <= 0){
+				tops = 0;
+				speed *= -1;
+			}
+			box.style.top=tops+'px';
+		}
+	</script>
+</body>
+</html>
